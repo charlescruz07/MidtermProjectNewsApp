@@ -17,7 +17,6 @@ public class NewsLoader extends AsyncTaskLoader<ArrayList<Article>> {
     public NewsLoader(Context context, String mUrl) {
         super(context);
         this.mUrl = mUrl;
-        Log.d("charles","ni sud na jod sa news loader");
     }
 
     @Override
@@ -33,7 +32,6 @@ public class NewsLoader extends AsyncTaskLoader<ArrayList<Article>> {
         }
 
         ArrayList<Article> articles = QueryUtils.fetchNewsData(mUrl);
-        Log.d("charles","nay sud ang articles?" + articles.isEmpty());
         return articles;
     }
 }

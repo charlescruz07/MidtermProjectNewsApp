@@ -28,8 +28,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public NewsAdapter(Context mContext, ArrayList<Article> articles) {
         this.mContext = mContext;
         this.articles = articles;
-        Log.d("charles","ni sud sa news adapter" + articles.size());
-        Log.d("charles","Sud sa article 1:\n" + articles.get(5).getTitle() + "\n"+ articles.get(5).getDescription());
     }
 
     @Override

@@ -27,11 +27,10 @@ public class QueryUtils {
 
     public static ArrayList<Article> fetchNewsData(String requestUrl){
         URL url = createUrl(requestUrl);
-        Log.d("charles","ni sud sa fetch news data");
         String jsonResponse = null;
         try{
             jsonResponse = makeHttpRequest(url);
-            Log.d("charles",jsonResponse);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,7 +43,6 @@ public class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e("charles", "Problem building the URL ", e);
         }
         return url;
     }
@@ -72,10 +70,8 @@ public class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e("charles", "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e("charles", "Problem retrieving the news JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -114,7 +110,6 @@ public class QueryUtils {
         try{
             JSONObject baseJsonResponse = new JSONObject(newsJson);
             JSONArray newsArray = baseJsonResponse.getJSONArray("articles");
-            Log.d("charles","articles length: " + newsArray.length());
             for(int i = 0 ; i<newsArray.length(); i++){
                 JSONObject currentArticle = newsArray.getJSONObject(i);
 
